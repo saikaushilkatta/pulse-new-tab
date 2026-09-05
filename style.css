@@ -1,0 +1,35 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #050510;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Forces the canvas to cover the entire background */
+#kinetix-canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Floats the UI perfectly in the center over the animation */
+#ui-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #00ffff;
+    text-align: center;
+    text-shadow: 0 0 15px #00ffff;
+    pointer-events: none; /* Lets clicks pass through to the canvas */
+}
+
+#clock {
+    font-size: 6rem;
+    margin: 0;
+    letter-spacing: 8px;
+}
