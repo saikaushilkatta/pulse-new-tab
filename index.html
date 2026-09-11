@@ -9,8 +9,47 @@
 <body>
     <canvas id="kinetix-canvas"></canvas>
 
-    <div id="ui-container">
-        <h1 id="clock">00:00</h1>
+    <!-- UI Overlay -->
+    <div class="dashboard-overlay">
+  
+        <!-- Left Column: (For future Music Player or Notes) -->
+        <div class="widget-panel">
+            <h3>Music Player</h3>
+            <p>Coming soon...</p>
+        </div>
+
+        <!-- Center Column: Search and Shortcuts -->
+        <div class="center-column">
+            <!-- Functional Google Search Bar -->
+            <form class="search-box" action="https://www.google.com/search" method="GET">
+                <input type="text" name="q" placeholder="search here..." autocomplete="off" autofocus>
+                <button type="submit">🔍</button>
+            </form>
+
+            <!-- Quick Links -->
+            <div class="shortcuts">
+                <a href="https://youtube.com" class="shortcut-icon" title="YouTube">📺</a>
+                <a href="https://github.com" class="shortcut-icon" title="GitHub">🐙</a>
+                <a href="https://app.slack.com" class="shortcut-icon" title="Slack">💬</a>
+            </div>
+        </div>
+
+        <!-- Right Column: Weather and Calendar -->
+        <div class="right-column">
+            <div class="widget-panel">
+                <h3>Weather</h3>
+                <p>Couldn't get your location :(</p>
+            </div>
+    
+            <div class="widget-panel" style="margin-top: 20px;">
+                <h3>September 2026</h3>
+                <div class="calendar-placeholder">
+                    <!-- We will populate the actual dates with JS later -->
+                    <p>[ Calendar Grid ]</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
