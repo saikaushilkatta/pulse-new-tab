@@ -9,28 +9,27 @@
 <body>
     <canvas id="kinetix-canvas"></canvas>
 
-    <!-- UI Overlay -->
+    
     <div class="dashboard-overlay">
   
-        <!-- Left Column: (For future Music Player or Notes) -->
+        
         <div class="widget-panel">
             <h3>Music Player</h3>
             <p>Coming soon...</p>
         </div>
 
-        <!-- Center Column: Search and Shortcuts -->
+        
         <div class="center-column">
 
             <h1 class="brand-title">Kinetix</h1>
             
-            <!-- Functional Google Search Bar -->
+            
             <form class="search-box" action="https://www.google.com/search" method="GET">
                 <input type="text" name="q" placeholder="search here..." autocomplete="off" autofocus>
                 <button type="submit">🔍</button>
             </form>
 
-            <!-- Quick Links -->
-            <!-- Quick Links -->
+            
             <div class="shortcuts">
                 <a href="https://youtube.com" class="shortcut-item">
                 <div class="shortcut-icon">📺</div>
@@ -47,7 +46,7 @@
             </div>
         </div>
 
-        <!-- Right Column: Weather and Calendar -->
+        
         <div class="right-column">
             <div class="widget-panel">
                 <h3>Weather</h3>
@@ -55,10 +54,13 @@
             </div>
     
             <div class="widget-panel" style="margin-top: 20px;">
-                <h3>September 2026</h3>
-                <div class="calendar-placeholder">
-                    <!-- We will populate the actual dates with JS later -->
-                    <p>[ Calendar Grid ]</p>
+                <h3 id="month-year">Month Year</h3>
+                <div class="calendar-container">
+                    <ul class="weeks"></ul>
+                        <li>S</li><li>M</li><li>T</li><li>W</li><li>T</li><li>F</li><li>S</li>
+                    </ul>
+                    <ul class="days" id="calendar-days">
+                    </ul>
                 </div>
             </div>
         </div>

@@ -90,7 +90,7 @@ body, html {
   font-family: 'Courier New', monospace;
 }
 
-/* Main Dashboard Layout */
+
 .dashboard-overlay {
   position: absolute;
   top: 0;
@@ -102,24 +102,24 @@ body, html {
   padding: 40px;
   box-sizing: border-box;
   z-index: 10;
-  pointer-events: none; /* Lets you still interact with the canvas background */
+  pointer-events: none; 
 }
 
-/* Re-enable clicking for actual widgets */
+
 .widget-panel, .center-column {
   pointer-events: auto; 
 }
 
-/* Center Search Area */
+
 .center-column {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  margin-top: 10vh; /* Pushes it down slightly */
+  margin-top: 10vh; 
 }
 
-/* Kinetix Title Styling */
+
 .brand-title {
   color: #00ffff;
   text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
@@ -130,14 +130,14 @@ body, html {
   font-weight: bold;
 }
 
-/* Right Column (optional styling for spacing) */
+
 .right-column {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Organize shortcuts in a horizontal row */
+
 .shortcuts {
   display: flex;
   flex-direction: row;
@@ -145,7 +145,7 @@ body, html {
   margin-top: 10px;
 }
 
-/* Style the text and stack it under the icon */
+
 .shortcut-item {
   display: flex;
   flex-direction: column;
@@ -160,4 +160,51 @@ body, html {
 
 .shortcut-item:hover {
   color: white;
+}
+
+
+.calendar-container {
+  margin-top: 15px;
+}
+
+.weeks, .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.weeks {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+}
+
+.days {
+  gap: 5px;
+  font-size: 0.9rem;
+}
+
+.days li {
+  padding: 5px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.days li:hover {
+  background: rgba(0, 255, 255, 0.2);
+}
+
+.days li.active {
+  background: #00ffff;
+  color: #050510;
+  font-weight: bold;
+}
+
+.days li.inactive {
+  color: rgba(255, 255, 255, 0.2);
 }

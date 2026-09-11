@@ -1,11 +1,11 @@
 const canvas = document.getElementById('kinetix-canvas');
 const ctx = canvas.getContext('2d');
 
-// Resize canvas to fill the window
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-// Track mouse position
+
 let mouse = {
     x: null,
     y: null,
@@ -17,38 +17,38 @@ window.addEventListener('mousemove', function(event) {
     mouse.y = event.y;
 });
 
-// Remove mouse coordinates when it leaves the screen
+
 window.addEventListener('mouseout', function() {
     mouse.x = undefined;
     mouse.y = undefined;
 });
 
-// Update canvas size if the window is resized
+
 window.addEventListener('resize', function() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     init();
 });
 
-// Create Particle object
+
 class Particle {
     constructor(x, y, dx, dy, size) {
         this.x = x;
         this.y = y;
-        this.dx = dx; // X velocity
-        this.dy = dy; // Y velocity
+        this.dx = dx; 
+        this.dy = dy; 
         this.size = size;
     }
 
-    // Draw the particle dot
+    
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.fillStyle = '#00ffff'; // Neon cyan
+        ctx.fillStyle = '#00ffff'; 
         ctx.fill();
     }
 
-    // Move the particle and bounce off edges
+    
     update() {
         if (this.x > canvas.width || this.x < 0) {
             this.dx = -this.dx;
@@ -64,10 +64,10 @@ class Particle {
 
 let particlesArray = [];
 
-// Fill the array with random particles
+
 function init() {
     particlesArray = [];
-    // Adjust the density based on screen size
+    
     let numberOfParticles = (canvas.width * canvas.height) / 9000;
     
     for (let i = 0; i < numberOfParticles; i++) {
@@ -80,10 +80,10 @@ function init() {
     }
 }
 
-// Connect particles to each other and the mouse
+
 function connect() {
     for (let a = 0; a < particlesArray.length; a++) {
-        // Connect to mouse
+        
         if (mouse.x != undefined && mouse.y != undefined) {
             let dx = mouse.x - particlesArray[a].x;
             let dy = mouse.y - particlesArray[a].y;
@@ -99,7 +99,7 @@ function connect() {
             }
         }
         
-        // Connect particles to other nearby particles
+        
         for (let b = a; b < particlesArray.length; b++) {
             let dx = particlesArray[a].x - particlesArray[b].x;
             let dy = particlesArray[a].y - particlesArray[b].y;
@@ -117,10 +117,10 @@ function connect() {
     }
 }
 
-// Main animation loop
+
 function animate() {
     requestAnimationFrame(animate);
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the previous frame
+    ctx.clearRect(0, 0, canvas.width, canvas.height); 
     
     for (let i = 0; i < particlesArray.length; i++) {
         particlesArray[i].update();
@@ -128,6 +128,47 @@ function animate() {
     connect();
 }
 
-// Start everything
+
+function renderCalendar() {
+    const date = new Date();
+    const currYear = date.getFullYear();
+    const currMonth = date.getMonth();
+
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    document.getElementById('month-year').textContent = `${months[currMonth]} ${currYear}`;
+
+    const daysTag = document.getElementById("calendar-days");
+    
+    
+    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay();
+    let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
+    let lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay();
+    let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
+    
+    let liTag = "";
+
+    
+    
+    for (let i = firstDayofMonth; i > 0; i--) {
+        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+    }
+
+    for (let i = 1; i <= lastDateofMonth; i++) {
+        let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";
+        liTag += `<li class="${isToday}">${i}</li>`;
+    }
+
+    for (let i = lastDayofMonth; i < 6; i++) {
+        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
+    }
+
+    daysTag.innerHTML = liTag;
+}
+
+
+renderCalendar();
+
+
 init();
 animate();
+
