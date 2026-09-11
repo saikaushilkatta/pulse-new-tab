@@ -89,3 +89,39 @@ body, html {
   color: #00ffff;
   font-family: 'Courier New', monospace;
 }
+
+/* Main Dashboard Layout */
+.dashboard-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  box-sizing: border-box;
+  z-index: 10;
+  pointer-events: none; /* Lets you still interact with the canvas background */
+}
+
+/* Re-enable clicking for actual widgets */
+.widget-panel, .center-column {
+  pointer-events: auto; 
+}
+
+/* Center Search Area */
+.center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10vh; /* Pushes it down slightly */
+}
+
+/* Right Column (optional styling for spacing) */
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
