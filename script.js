@@ -1,17 +1,3 @@
-// --- 1. Live Neon Clock ---
-function updateClock() {
-    const clockElement = document.getElementById('clock');
-    const now = new Date();
-    const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    clockElement.textContent = timeString;
-}
-
-
-updateClock();
-setInterval(updateClock, 1000);
-
-
-// --- 2. Interactive Particle Network ---
 const canvas = document.getElementById('kinetix-canvas');
 const ctx = canvas.getContext('2d');
 
