@@ -200,6 +200,21 @@ function fetchWeather() {
 }
 
 
+
+const music = document.getElementById('bg-music');
+const playBtn = document.getElementById('play-btn');
+
+playBtn.addEventListener('click', () => {
+    if (music.paused) {
+        music.play();
+        playBtn.innerHTML = '⏸ PAUSE';
+    } else {
+        music.pause();
+        playBtn.innerHTML = '▶ PLAY';
+    }
+});
+
+
 fetchWeather();
 
 
