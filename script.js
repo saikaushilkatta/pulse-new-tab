@@ -166,6 +166,43 @@ function renderCalendar() {
 }
 
 
+
+function fetchWeather() {
+    const tempEl = document.getElementById('weather-temp');
+    const descEl = document.getElementById('weather-desc');
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+
+            
+            fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`)
+                .then(response => response.json())
+                .then(data => {
+                    const temp = data.current_weather.temperature;
+                    const wind = data.current_weather.windspeed;
+                    
+                    tempEl.innerHTML = `${temp}&deg;C`;
+                    descEl.textContent = `Wind: ${wind} km/h`;
+                })
+                .catch(error => {
+                    tempEl.textContent = "Error";
+                    descEl.textContent = "API unreachable";
+                });
+        }, () => {
+            tempEl.textContent = "N/A";
+            descEl.textContent = "Location blocked :(";
+        });
+    } else {
+        descEl.textContent = "Geolocation unsupported";
+    }
+}
+
+
+fetchWeather();
+
+
 renderCalendar();
 
 

@@ -208,3 +208,18 @@ body, html {
 .days li.inactive {
   color: rgba(255, 255, 255, 0.2);
 }
+
+#weather-temp {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+  color: #00ffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+#weather-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  text-transform: lowercase;
+}
