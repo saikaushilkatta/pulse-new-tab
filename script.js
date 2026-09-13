@@ -213,8 +213,9 @@ const searchInput = document.getElementById('song-search');
 
 const songs = [
     { name: "Stardance Synth", url: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" },
-    { name: "Cyberpunk City", url: "https://cdn.pixabay.com/download/audio/2021/11/25/audio_91b3ec51f7.mp3" },
-    { name: "Neon Vibes", url: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_279bf00ee4.mp3" }
+    { name: "Cyberpunk City", url: "cyberpunk.mp3" },
+    { name: "Neon Vibes", url: "Neon-vibes.mp3" }
+
 ];
 
 let songIndex = 0;
