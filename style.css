@@ -312,3 +312,8 @@ body, html {
 
 #playlist::-webkit-scrollbar { width: 4px; }
 #playlist::-webkit-scrollbar-thumb { background: rgba(0, 255, 255, 0.5); border-radius: 4px; }
+
+.left-column .widget-panel {
+  height: fit-content;
+  align-self: start; 
+}
