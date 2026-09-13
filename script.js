@@ -201,19 +201,89 @@ function fetchWeather() {
 
 
 
+
 const music = document.getElementById('bg-music');
 const playBtn = document.getElementById('play-btn');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const trackName = document.getElementById('track-name');
+const playlistEl = document.getElementById('playlist');
+const searchInput = document.getElementById('song-search');
 
-playBtn.addEventListener('click', () => {
+
+const songs = [
+    { name: "Stardance Synth", url: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" },
+    { name: "Cyberpunk City", url: "https://cdn.pixabay.com/download/audio/2021/11/25/audio_91b3ec51f7.mp3" },
+    { name: "Neon Vibes", url: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_279bf00ee4.mp3" }
+];
+
+let songIndex = 0;
+
+
+function loadSong(index) {
+    trackName.textContent = songs[index].name;
+    music.src = songs[index].url;
+    renderPlaylist();
+}
+
+
+function togglePlay() {
     if (music.paused) {
         music.play();
-        playBtn.innerHTML = '⏸ PAUSE';
+        playBtn.innerHTML = '⏸';
     } else {
         music.pause();
-        playBtn.innerHTML = '▶ PLAY';
+        playBtn.innerHTML = '▶';
     }
-});
+}
 
+
+function prevSong() {
+    songIndex = (songIndex - 1 + songs.length) % songs.length;
+    loadSong(songIndex);
+    music.play();
+    playBtn.innerHTML = '⏸';
+}
+
+function nextSong() {
+    songIndex = (songIndex + 1) % songs.length;
+    loadSong(songIndex);
+    music.play();
+    playBtn.innerHTML = '⏸';
+}
+
+
+function renderPlaylist() {
+    playlistEl.innerHTML = "";
+    const filterText = searchInput.value.toLowerCase();
+
+    songs.forEach((song, index) => {
+        if (song.name.toLowerCase().includes(filterText)) {
+            const li = document.createElement('li');
+            li.textContent = song.name;
+            if (index === songIndex) li.classList.add('active-song');
+            
+            
+            li.addEventListener('click', () => {
+                songIndex = index;
+                loadSong(songIndex);
+                music.play();
+                playBtn.innerHTML = '⏸';
+            });
+            playlistEl.appendChild(li);
+        }
+    });
+}
+
+
+playBtn.addEventListener('click', togglePlay);
+prevBtn.addEventListener('click', prevSong);
+nextBtn.addEventListener('click', nextSong);
+music.addEventListener('ended', nextSong);
+searchInput.addEventListener('input', renderPlaylist); 
+
+
+loadSong(songIndex);
 
 fetchWeather();
 

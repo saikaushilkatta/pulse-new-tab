@@ -16,15 +16,23 @@
         <div class="widget-panel">
             <h3>Music Player</h3>
             <div class="audio-player">
-                <audio id="bg-music" loop>
-                    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
-                </audio>
+                
+                <input type="text" id="song-search" placeholder="Search playlist..." autocomplete="off">
 
                 <div class="track-info">
-                    <span id="track-name">stardance_synth.mp3</span>
+                    <span id="track-name">Loading...</span>
                 </div>
 
-                <button id="play-btn" class="neon-btn">▶ PLAY</button>
+
+                <div class="player-controls">
+                    <button id="prev-btn" class="neon-btn small-btn">⏮</button>
+                    <button id="play-btn" class="neon-btn">▶</button>
+                    <button id="next-btn" class="neon-btn small-btn">⏭</button>
+                </div>
+
+                <ul id="playlist"></ul>
+
+                <audio id="bg-music"></audio>
             </div>
         </div>
 
