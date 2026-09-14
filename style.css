@@ -313,15 +313,8 @@ body, html {
 #playlist::-webkit-scrollbar { width: 4px; }
 #playlist::-webkit-scrollbar-thumb { background: rgba(0, 255, 255, 0.5); border-radius: 4px; }
 
-
-.left-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start !important;
-}
-
-.left-column .widget-panel {
-  height: auto !important;
-  flex: 0 0 auto !important;
-  margin-bottom: auto !important;
+#music-panel {
+  height: fit-content !important;
+  min-height: 0 !important;
+  flex: none !important;
 }
