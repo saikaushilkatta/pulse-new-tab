@@ -310,9 +310,9 @@ if (globeContainer) {
     
     world.controls().autoRotate = true;
     world.controls().autoRotateSpeed = 1.2;
-    
-    
     world.controls().enableZoom = false; 
+    world.controls().minDistance = 150;
+    world.controls().maxDistance = 400;
 }
 
 loadSong(songIndex);
