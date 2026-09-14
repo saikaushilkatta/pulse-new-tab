@@ -347,11 +347,12 @@ body, html {
 
 #globe-panel {
   display: flex;
+  flex-direction: column; 
   justify-content: center;
   align-items: center;
-  padding: 10px 0;
+  padding: 15px 0;
   overflow: hidden;
-  height: 280px; 
+  height: fit-content; 
 }
 
 #globe-viz {
