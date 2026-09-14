@@ -298,6 +298,23 @@ notepad.addEventListener('input', () => {
 });
 
 
+const globeContainer = document.getElementById('globe-viz');
+
+if (globeContainer) {
+    const world = Globe()(globeContainer)
+        .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
+        .backgroundColor('rgba(0, 0, 0, 0)') 
+        .width(260)
+        .height(260);
+
+    
+    world.controls().autoRotate = true;
+    world.controls().autoRotateSpeed = 1.2;
+    
+    
+    world.controls().enableZoom = false; 
+}
+
 loadSong(songIndex);
 
 fetchWeather();

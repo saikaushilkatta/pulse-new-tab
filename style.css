@@ -344,3 +344,20 @@ body, html {
   border-color: #00ffff;
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
 }
+
+#globe-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  overflow: hidden;
+  height: 280px; 
+}
+
+#globe-viz {
+  cursor: grab;
+}
+
+#globe-viz:active {
+  cursor: grabbing;
+}
