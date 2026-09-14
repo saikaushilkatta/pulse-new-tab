@@ -302,7 +302,7 @@ const globeContainer = document.getElementById('globe-viz');
 
 if (globeContainer) {
     const world = Globe()(globeContainer)
-        .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
+        .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
         .backgroundColor('rgba(0, 0, 0, 0)') 
         .width(260)
         .height(260);
