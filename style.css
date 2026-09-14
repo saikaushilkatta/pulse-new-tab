@@ -318,3 +318,29 @@ body, html {
   min-height: 0 !important;
   flex: none !important;
 }
+
+#notepad-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+#hacker-notes {
+  width: 100%;
+  min-height: 120px;
+  background: rgba(0, 25, 25, 0.3);
+  color: #00ffff;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+  font-family: monospace; 
+  font-size: 0.9rem;
+  resize: none; 
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+#hacker-notes:focus {
+  border-color: #00ffff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}

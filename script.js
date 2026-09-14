@@ -284,6 +284,20 @@ music.addEventListener('ended', nextSong);
 searchInput.addEventListener('input', renderPlaylist); 
 
 
+const notepad = document.getElementById('hacker-notes');
+
+
+const savedNotes = localStorage.getItem('kinetix_notes');
+if (savedNotes) {
+    notepad.value = savedNotes;
+}
+
+
+notepad.addEventListener('input', () => {
+    localStorage.setItem('kinetix_notes', notepad.value);
+});
+
+
 loadSong(songIndex);
 
 fetchWeather();
