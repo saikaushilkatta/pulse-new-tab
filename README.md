@@ -17,4 +17,9 @@ A personal tab and dashboard I built for the Stardance challenge.
 
 https://saikaushilkatta.github.io/pulse-new-tab/
 
+# How to Run Locally
+
+1. Clone the repository: `git clone https://github.com/saikaushilkatta/pulse-new-tab.git`
+2. Open 'index.html' in your browser. 
+
 Built with HTML5, CSS3, and JavaScript.
