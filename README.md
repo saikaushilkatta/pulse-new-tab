@@ -2,7 +2,7 @@
 
 A personal tab and dashboard I built for the Stardance challenge.
 
-![Kinetix Dashboard](./Project in Action.png)
+![Kinetix Dashboard](./Project-in-Action.png)
 
 # Features
 
